@@ -372,6 +372,10 @@ Invoke-Pester ./Tests -Output Detailed -CodeCoverage ./GWT/**/*.ps1
 | Aliases | `gwt`/`wt` (configurable) | `gwt`/`wt` (via module manifest) |
 | Flag style | `--stack`, `-s` | `-Stack` (PowerShell native) |
 
+## See Also
+
+- **[gwt-zsh](https://github.com/aasimsani/gwt-zsh)** - The original zsh version of gwt
+
 ## License
 
 MIT

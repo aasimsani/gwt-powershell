@@ -4,19 +4,19 @@ Set FontSize 20
 Set Width 1200
 Set Height 600
 Set Theme "Catppuccin Frappe"
-Set Shell pwsh
+Set Shell bash
 Set TypingSpeed 0
 Set Padding 20
 
-# Hidden setup — isolated temp repo so we don't touch the real one
+# Hidden setup — launch pwsh, set up isolated temp repo
 Hide
-Type "Set-StrictMode -Off"
+Type "pwsh -NoProfile -NoLogo"
+Enter
+Sleep 1s
+Type "$GWT_MODULE_DIR = '/Users/aasimsani/Documents/code/gwt-powershell'"
 Enter
 Sleep 200ms
 Type "$env:GWT_POST_CREATE_CMD = $null"
-Enter
-Sleep 200ms
-Type "$GWT_MODULE_DIR = (Get-Location).Path"
 Enter
 Sleep 200ms
 Type "$DEMO_DIR = Join-Path $GWT_MODULE_DIR 'demo-repo'"
@@ -80,7 +80,7 @@ Sleep 200ms
 Type "# See all worktrees at a glance"
 Enter
 Sleep 500ms
-Type "gwt -List"
+Type "gwt --list"
 Enter
 Sleep 1s
 
@@ -94,7 +94,7 @@ Sleep 500ms
 Type "gwt feature/api-v2"
 Enter
 Sleep 500ms
-Type "gwt -Info"
+Type "gwt --info"
 Enter
 Sleep 1s
 
@@ -105,7 +105,7 @@ Sleep 200ms
 Type "# Clean up with interactive pruning"
 Enter
 Sleep 500ms
-Type "gwt -Prune"
+Type "gwt --prune"
 Enter
 Sleep 500ms
 Type "1"
@@ -125,7 +125,7 @@ Sleep 200ms
 Type "# Full help available"
 Enter
 Sleep 500ms
-Type "gwt -Help"
+Type "gwt --help"
 Enter
 Sleep 1s
 
@@ -138,6 +138,9 @@ Type "Remove-Item $DEMO_DIR -Recurse -Force -ErrorAction SilentlyContinue"
 Enter
 Sleep 200ms
 Type "Remove-Item (Join-Path (Split-Path $DEMO_DIR) 'demo-repo-*') -Recurse -Force -ErrorAction SilentlyContinue"
+Enter
+Sleep 200ms
+Type "exit"
 Enter
 Sleep 200ms
 Show
