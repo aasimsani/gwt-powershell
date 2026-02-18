@@ -4,7 +4,7 @@ Set FontSize 20
 Set Width 1200
 Set Height 600
 Set Theme "Catppuccin Frappe"
-Set Shell /usr/local/bin/pwsh
+Set Shell pwsh
 Set TypingSpeed 0
 Set Padding 20
 
