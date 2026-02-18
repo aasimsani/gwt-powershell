@@ -1,0 +1,16 @@
+# PowerShell
+*.ps1xml
+TestResults.xml
+
+# IDE
+.vscode/
+.idea/
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pester output
+testResults/
+coverage.xml
