@@ -59,10 +59,17 @@ function Remove-GwtWorktree {
         }
         Write-Host ''
         $maxNum = $worktreeDisplay.Count
-        $example = if ($maxNum -eq 1) { '1' } else { "1 $maxNum" }
-        $selection = Read-Host "  Enter numbers ($example), 'all', or 'q'"
+        if ($maxNum -eq 1) {
+            Write-Host "  Enter 1, all, or q to quit" -ForegroundColor DarkGray
+        } else {
+            Write-Host "  Space-separated numbers (e.g. 1 3), all, or q to quit" -ForegroundColor DarkGray
+        }
+        $selection = Read-Host "  >"
 
         if ($selection -eq 'q') { return }
+
+        # Strip quotes if user typed 'all' with quotes
+        $selection = $selection.Trim("'""")
 
         $toPrune = @()
         if ($selection -eq 'all') {
